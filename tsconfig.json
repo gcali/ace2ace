@@ -1,0 +1,14 @@
+{
+    "compileOnSave": true,
+    "compilerOptions": {
+        "target": "es6",
+        "module": "commonjs",
+        "sourceMap": true,
+        "alwaysStrict": true,
+        "outDir": "bin"
+    },
+    "include": [
+        "src/**/*.ts",
+        "bin/models/registry/suit.ts"
+    ]
+}
