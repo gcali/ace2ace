@@ -1,6 +1,7 @@
 import { Range, List, Seq, Collection } from "immutable";
 import { allSuits } from "../models/registry/suit";
 import Card from "../models/card";
+import { padLeft } from "./utils";
 
 class Deck {
 	readonly cards: Collection.Indexed<Card>;
@@ -9,13 +10,11 @@ class Deck {
 			this.cards = cards;
 		}
 		else {
-			console.log(allSuits);
 			this.cards = allSuits.map(
 				suit => Range(1, 14).map(
 					i => (new Card(i, suit))
 				)
 			).flatten().sortBy(Math.random).toList();
-			console.log(this.cards);
 		}
 	}
 
@@ -25,7 +24,7 @@ class Deck {
 	}
 
 	public serialize(): string {
-		let serializedCards = this.cards.map(card => card.serialize().toString(16));
+		let serializedCards = this.cards.map(card => padLeft(card.serialize().toString(16), 2));
 		return serializedCards.join("");
 	}
 
@@ -46,18 +45,6 @@ class Deck {
 		let chunks = chunk(serialized, 2);
 		let cards = chunks.map(chunk => Card.fromSerialized(parseInt(chunk, 16)));
 		return new Deck(List(cards));
-
-		/*
-		let compatCards = parseInt(serialized, 16);
-		let cards: List<Card> = List<Card>();
-		while (compatCards > 0) {
-			let currentCard = compatCards & (0xFF);
-			cards = cards.push(Card.fromSerialized(currentCard));
-			compatCards >>= 8;
-		}
-
-		return new Deck(cards);
-		*/
 	}
 
 }

@@ -1,8 +1,14 @@
 import Suit from "./registry/suit";
+import Equatable from "./equatable";
 
-class Card {
+class Card implements Equatable<Card> {
+
     constructor(public readonly value: number, public readonly suit: Suit) {
 
+    }
+
+    public equals(other: Card): boolean {
+        return this.suit === other.suit && this.value === other.value;
     }
 
     public serialize(): number {

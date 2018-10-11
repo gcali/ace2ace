@@ -9,6 +9,8 @@
     },
     "include": [
         "src/**/*.ts",
-        "bin/models/registry/suit.ts"
+    ],
+    "exclude": [
+        "src/**/*.spec.ts"
     ]
 }
