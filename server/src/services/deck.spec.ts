@@ -58,7 +58,7 @@ describe("Deck", () => {
         expect(concatenated.serialize()).to.be.equal(firstDrawn.serialize() + secondDrawn.serialize());
     });
 
-    it('mantains card numbers when chunk-serialiing', () => {
+    it('mantains card numbers when chunk-serializing', () => {
         const deck = new Deck();
         const chunkSerialized = deck.chunkSerialize();
         expect(List(chunkSerialized).count()).to.be.equal(deck.length());

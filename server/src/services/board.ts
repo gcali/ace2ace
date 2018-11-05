@@ -7,15 +7,17 @@ interface BoardArgs {
 	secondHand?: Deck
 }
 
-class Board {
+export default class Board {
 	public readonly deck: Deck;
 	public readonly discards: Deck;
 	public readonly firstHand: Deck;
 	public readonly secondHand: Deck;
 
-	constructor({ deck, discards, firstHand, secondHand }: BoardArgs) {
+	public readonly HOW_MANY_PER_HANDS: number = 5;
+
+	constructor({ deck, discards, firstHand, secondHand }: BoardArgs = {}) {
 		if (!deck) {
-			deck = new Deck();
+			deck = new Deck(null, false).concat(new Deck(null, false)).shuffle();
 		}
 		if (!discards) {
 			discards = Deck.empty();
@@ -54,5 +56,12 @@ class Board {
 			secondHand: this.secondHand.concat(drawResult.drawn),
 			discards: this.discards
 		});
+	}
+
+	public setUpTable(): Board {
+		if (this.firstHand.length() > 0 || this.secondHand.length() > 0) {
+			throw new Error("Cannot set up board if it's already initialized");
+		}
+		return this.drawForFirst(this.HOW_MANY_PER_HANDS).drawForSecond(this.HOW_MANY_PER_HANDS);
 	}
 }
