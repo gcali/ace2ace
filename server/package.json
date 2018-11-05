@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "bin": {
-    "ace2ace": "hello.js"
+    "ace2ace": "index.js"
   },
   "scripts": {
     "test": "mocha --require ts-node/register src/**/*.spec.ts",
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "start": "node bin/index.js"
   },
   "author": "",
   "license": "ISC",
