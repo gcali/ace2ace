@@ -1,4 +1,4 @@
-import { Set } from "immutable";
+import { Set } from "@node/immutable";
 enum Suit {
     Hearts = 0,
     Spades = 1,

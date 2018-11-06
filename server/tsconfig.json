@@ -5,14 +5,26 @@
         "module": "commonjs",
         "sourceMap": true,
         "alwaysStrict": true,
-        "outDir": "bin"
+        "outDir": "bin",
+        "baseUrl": "../"
     },
     "include": [
         "src/**/*.ts",
-        "../common/src/**/*.ts"
+        "../common/**/*.ts"
     ],
+    "paths": {
+        "@/*": [
+            "server/src/*"
+        ],
+        "@common/*": [
+            "common/*"
+        ],
+        "@node/*": [
+            "server/node_modules"
+        ]
+    },
     "exclude": [
-        "src/**/*.spec.ts",
-        "../common/src/**/*spec.ts"
+        "server/src/**/*.spec.ts",
+        "common/**/*spec.ts"
     ]
 }

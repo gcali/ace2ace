@@ -2,7 +2,7 @@ import Card from "./card";
 import Suit from "./registry/suit";
 import { allSuits } from "./registry/suit";
 import { expect } from "chai";
-import { Range } from "immutable";
+import { Range } from "@node/immutable";
 
 describe("Card", function () {
     it("serializes a card", function () {

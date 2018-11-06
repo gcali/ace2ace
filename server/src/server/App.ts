@@ -1,6 +1,6 @@
 import * as express from 'express';
-import Deck from "../services/deck";
-import Card from '../models/card';
+import Card from '@common/models/card';
+import Deck from '@common/services/deck';
 
 class App {
     public express: ReturnType<typeof express>;
