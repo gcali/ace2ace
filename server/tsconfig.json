@@ -5,14 +5,13 @@
         "module": "commonjs",
         "sourceMap": true,
         "alwaysStrict": true,
-        "outDir": "bin"
+        "outDir": "bin",
+        "baseUrl": "./src",
     },
     "include": [
-        "src/**/*.ts",
-        "../common/src/**/*.ts"
+        "src/**/*.ts"
     ],
     "exclude": [
         "src/**/*.spec.ts",
-        "../common/src/**/*spec.ts"
     ]
 }
